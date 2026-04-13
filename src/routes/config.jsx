@@ -1,0 +1,170 @@
+import Login from '../pages/Login';
+import ForgotPassword from '../pages/ForgotPassword';
+import ResetPasswordConfirm from '../pages/ResetPasswordConfirm';
+import Welcome from '../pages/Welcome';
+import Registration from '../pages/Registration';
+import RegisterCustomer from '../pages/RegisterCustomer';
+import CustomerList from '../pages/CustomerList';
+import ShipTo from '../pages/ShipTo';
+import EmployeeList from '../pages/EmployeeList';
+import DashboardWizard from '../pages/AddStore';
+import OrderWizard from '../pages/OrderWizard';
+import DraftsList from '../pages/DraftsList';
+import ApprovalsList from '../pages/ApprovalsList';
+import CorrectionsList from '../pages/CorrectionsList';
+import AllOrdersList from '../pages/AllOrdersList';
+import OrderDetails from '../pages/OrderDetails';
+import PlaceholderPage from '../pages/PlaceholderPage';
+import AuthWrapper from '../components/AuthWrapper';
+import MainLayout from '../components/layout/MainLayout';
+
+import CustomerLogin from '../pages/CustomerLogin';
+import CustomerLayout from '../components/layout/CustomerLayout';
+import CustomerDashboard from '../pages/CustomerDashboard';
+
+import { PATHS } from './paths';
+
+export { PATHS };
+
+/**
+ * Route Modules - Grouped for clear editability
+ */
+
+const STAFF_MODULE = [
+    {
+        path: 'staff/register',
+        element: Registration,
+        props: { title: 'Register Employee' },
+        requiredPermission: 'CanCreateEmployee'
+    },
+    {
+        path: 'staff/list',
+        element: EmployeeList,
+        requiredPermission: 'CanManageEmployee'
+    }
+];
+
+const CUSTOMER_MODULE = [
+    {
+        path: 'customer/register',
+        element: RegisterCustomer,
+        requiredPermission: 'CanCreateCustomers'
+    },
+    {
+        path: 'customer/list',
+        element: CustomerList,
+        requiredPermission: 'CanManageCustomers'
+    },
+    {
+        path: 'customer/ship-to',
+        element: ShipTo,
+        requiredPermission: 'CanManageCustomers'
+    }
+];
+
+const CUSTOMER_CARE_MODULE = [
+    { path: PATHS.CUSTOMER_CARE.NEW_ORDER, element: OrderWizard },
+    { path: PATHS.CUSTOMER_CARE.ALL_ORDERS, element: AllOrdersList },
+    { path: PATHS.CUSTOMER_CARE.PENDING_ORDERS, element: PlaceholderPage, props: { title: 'Pending Orders' } },
+    { path: PATHS.CUSTOMER_CARE.ORDER_STATUS, element: PlaceholderPage, props: { title: 'Order Status' } },
+    { path: PATHS.CUSTOMER_CARE.SERVICE_GOODS, element: PlaceholderPage, props: { title: 'Service/Goods Order' } },
+    { path: PATHS.CUSTOMER_CARE.VIEW_ORDERS, element: PlaceholderPage, props: { title: 'View Orders' } },
+    { path: PATHS.CUSTOMER_CARE.UPGRADE_ORDERS, element: PlaceholderPage, props: { title: 'Upgrade Orders' } },
+    { path: PATHS.CUSTOMER_CARE.UPDATE_CUSTOMERS, element: CustomerList, requiredPermission: 'CanManageCustomers' },
+    { path: PATHS.CUSTOMER_CARE.EDIT_ORDER, element: OrderWizard },
+    { path: PATHS.CUSTOMER_CARE.ORDER_DETAILS, element: OrderDetails },
+];
+
+const OPERATIONS_MODULE = [
+    { path: 'lab', element: PlaceholderPage, props: { title: 'Lab' } },
+    { path: 'surfacing', element: PlaceholderPage, props: { title: 'Surfacing' } },
+    { path: 'tint', element: PlaceholderPage, props: { title: 'Tint' } },
+    { path: 'hard-coat', element: PlaceholderPage, props: { title: 'Hard Coat' } },
+    { path: 'arc', element: PlaceholderPage, props: { title: 'ARC' } },
+    { path: 'qc', element: PlaceholderPage, props: { title: 'QC' } },
+    { path: 'fitting', element: PlaceholderPage, props: { title: 'Fitting' } },
+    { path: 'dispatch', element: PlaceholderPage, props: { title: 'Dispatch' } },
+    { path: 'dms', element: PlaceholderPage, props: { title: 'DMS' } },
+    { path: 'finance', element: PlaceholderPage, props: { title: 'F&A' }, requiredPermission: 'CanViewFinancials' },
+    { path: 'reports', element: PlaceholderPage, props: { title: 'Reports' }, requiredPermission: 'CanViewReports' },
+    { path: 'stores', element: DashboardWizard, requiredPermission: 'CanManageProducts' },
+    { path: 'new-order', element: OrderWizard },
+];
+
+/**
+ * Combined Routes Configuration
+ */
+export const routesConfig = [
+    {
+        path: PATHS.LOGIN,
+        element: Login,
+        isPublic: true
+    },
+    {
+        path: PATHS.CUSTOMER_LOGIN,
+        element: CustomerLogin,
+        isPublic: true
+    },
+    {
+        path: PATHS.FORGOT_PASSWORD,
+        element: ForgotPassword,
+        isPublic: true
+    },
+    {
+        path: PATHS.CUSTOMER_FORGOT_PASSWORD,
+        element: ForgotPassword,
+        props: { type: 'customer' },
+        isPublic: true
+    },
+    {
+        path: PATHS.RESET_PASSWORD_CONFIRM,
+        element: ResetPasswordConfirm,
+        isPublic: true
+    },
+    {
+        element: AuthWrapper,
+        isProtected: true,
+        children: [
+            {
+                path: PATHS.CUSTOMER_PORTAL,
+                element: CustomerLayout,
+                children: [
+                    { index: true, element: CustomerDashboard }
+                ]
+            },
+            {
+                path: PATHS.WELCOME,
+                element: Welcome
+            },
+            {
+                path: PATHS.ROOT,
+                element: MainLayout,
+                children: [
+                    {
+                        index: true,
+                        element: PlaceholderPage,
+                        props: { title: 'Dashboard' }
+                    },
+                    {
+                        path: PATHS.DRAFTS,
+                        element: DraftsList
+                    },
+                    {
+                        path: PATHS.APPROVALS,
+                        element: ApprovalsList,
+                        requiredPermission: 'CanManageCustomers'
+                    },
+                    {
+                        path: PATHS.CORRECTIONS,
+                        element: CorrectionsList,
+                        requiredPermission: 'CanCreateCustomers'
+                    },
+                    ...STAFF_MODULE,
+                    ...CUSTOMER_MODULE,
+                    ...CUSTOMER_CARE_MODULE,
+                    ...OPERATIONS_MODULE
+                ]
+            }
+        ]
+    }
+];

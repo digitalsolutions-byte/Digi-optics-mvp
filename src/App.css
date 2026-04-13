@@ -1,0 +1,8 @@
+/* Legacy App.css has been replaced by Tailwind CSS utility classes */
+/* Add any highly specific non-utility styles here if needed */
+#root {
+  min-width: 100vw;
+  margin: 0 auto;
+  /* padding: 2rem; */
+  text-align: center;
+}
