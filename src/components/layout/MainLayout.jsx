@@ -4,6 +4,7 @@ import Topbar from './Topbar';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import mainBg from '../../assets/main-bg.svg';
+import GoBackButton from '../navigation/GoBackButton';
 
 const MainLayout = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth > 768); 
@@ -24,35 +25,43 @@ const MainLayout = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-gray-50 flex overflow-hidden relative">
+        <div className="relative flex min-h-screen overflow-hidden bg-slate-50">
             {/* Background Image Layer */}
             <div
-                className="absolute inset-0 z-0 pointer-events-none opacity-20"
+                className="pointer-events-none absolute inset-0 z-0 opacity-[0.14]"
                 style={{
                     backgroundImage: `url(${mainBg})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
+                    backgroundSize: '1400px',
+                    backgroundPosition: 'top right',
                     filter: 'grayscale(100%)'
                 }}
-            ></div>
+            />
+            <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-64 bg-gradient-to-b from-orange-100/50 via-white/40 to-transparent" />
 
             {/* Sidebar */}
             <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
 
             {/* Main Content Area */}
             <div
-                className={`flex-1 flex flex-col h-screen overflow-hidden transition-all duration-300 relative z-10     ${isSidebarOpen ? 'ml-0 md:ml-64' : 'ml-0'}        `}
+                className={`relative z-10 flex h-screen flex-1 flex-col overflow-hidden transition-all duration-300 ${isSidebarOpen ? 'ml-0 md:ml-64' : 'ml-0'}`}
             >
-                <div className="p-2 md:p-8 pb-0">
+                <div className="px-3 pt-3 md:px-6 md:pt-5">
                     <Topbar />
                 </div>
-                <main className="flex-1 overflow-x-hidden overflow-y-auto p-2 md:p-8 pt-4 relative">
-                    <Outlet />
+                <main className="relative flex-1 overflow-x-hidden overflow-y-auto px-3 pb-20 pt-3 md:px-6 md:pb-8 md:pt-4">
+                    <div className="mx-auto flex w-full max-w-[1600px] flex-col gap-4">
+                        <div className="rounded-[1.5rem] border border-white/70 bg-white/75 px-4 py-3 shadow-[0_12px_35px_rgba(15,23,42,0.08)] backdrop-blur-md md:px-5">
+                            <GoBackButton />
+                        </div>
+                        <div className="rounded-[1.75rem] border border-slate-200/70 bg-white/88 p-4 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-md md:p-6">
+                            <Outlet />
+                        </div>
+                    </div>
 
                     {/* Floating Action Button (New Order) */}
                     <button
                         onClick={() => navigate('/new-order')}
-                        className="fixed bottom-6 right-6 md:bottom-8 md:right-8 bg-erp-accent hover:bg-erp-accent/80 text-white rounded-full p-3 md:p-4 shadow-lg shadow-erp-accent/40 transition-all hover:scale-110 focus:outline-none focus:ring-4 focus:ring-amber-300 z-50 flex items-center justify-center transition-all duration-300"
+                        className="fixed bottom-5 right-5 z-50 flex items-center justify-center rounded-full bg-erp-accent p-3 text-white shadow-lg shadow-erp-accent/30 transition-all duration-300 hover:scale-110 hover:bg-erp-accent/85 focus:outline-none focus:ring-4 focus:ring-amber-300 md:bottom-8 md:right-8 md:p-4"
                         title="Create New Order"
                     >
                         <Icon icon="mdi:plus" className="w-6 h-6 md:w-8 md:h-8" />

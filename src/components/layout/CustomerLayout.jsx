@@ -6,6 +6,7 @@ import { Icon } from '@iconify/react';
 import logo from '../../assets/logo.svg';
 import { acceptTermsConditions } from '../../services/customerService';
 import { toast } from 'react-toastify';
+import GoBackButton from '../navigation/GoBackButton';
 
 const CustomerLayout = () => {
     const dispatch = useDispatch();
@@ -53,41 +54,51 @@ const CustomerLayout = () => {
     };
 
     return (
-        <div className="min-h-screen bg-[#FDFDFD] font-sans flex flex-col">
+        <div className="flex min-h-screen flex-col bg-[linear-gradient(180deg,#fffdf8_0%,#fffaf0_16%,#f8fafc_44%,#f7fafc_100%)] font-sans">
             {/* Navbar */}
-            <header className="bg-white shadow-[0_4px_30px_rgb(0,0,0,0.03)] border-b border-gray-100 px-6 py-4 flex items-center justify-between z-20 sticky top-0 backdrop-blur-md bg-white/80">
-                <div className="flex items-center gap-4">
-                    <img src={logo} alt="DigiOptics" className="h-10 object-contain" />
-                    <span className="hidden md:inline-block text-lg font-black text-amber-600 tracking-widest uppercase border-l-2 border-amber-500/20 pl-4 py-1">Customer Portal</span>
-                </div>
-
-                <div className="flex items-center gap-6">
-                    {/* User Info Badges */}
-                    <div className="hidden lg:flex items-center gap-2 text-[10px]">
-                        <span className="font-black bg-purple-50 text-purple-600 px-2.5 py-1 rounded-full uppercase tracking-wider">{user?.SubRole?.name || user?.SubRole || '---'}</span>
-                        <span className="font-black bg-blue-50 text-blue-600 px-2.5 py-1 rounded-full uppercase tracking-wider">{user?.EmployeeType?.name || user?.EmployeeType || '---'}</span>
-                        <span className="font-black bg-teal-50 text-teal-600 px-2.5 py-1 rounded-full uppercase tracking-wider">{user?.Department?.name || user?.Department || '---'}</span>
+            <header className="sticky top-0 z-20 border-b border-amber-100/70 bg-white/85 backdrop-blur-xl">
+                <div className="mx-auto flex w-full max-w-[1400px] items-center justify-between gap-4 px-4 py-3 md:px-6 md:py-4">
+                    <div className="flex min-w-0 items-center gap-3 md:gap-4">
+                        <div className="rounded-xl bg-gradient-to-br from-white to-amber-50 p-2 shadow-[0_8px_18px_rgba(251,191,36,0.14)] ring-1 ring-amber-100">
+                            <img src={logo} alt="DigiOptics" className="h-8 object-contain md:h-9" />
+                        </div>
+                        <div className="min-w-0">
+                            <div className="text-[10px] font-bold uppercase tracking-[0.24em] text-amber-500">Customer Portal</div>
+                            <div className="truncate text-sm font-semibold text-slate-900 md:text-lg">
+                                {user?.shopName || user?.ownerName || 'Customer Portal'}
+                            </div>
+                            <div className="mt-1 flex flex-wrap items-center gap-2">
+                                <span className="rounded-full bg-amber-50 px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-amber-700">
+                                    {user?.customerCode || 'Customer'}
+                                </span>
+                                <span className="hidden md:inline-flex rounded-full bg-slate-100 px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-slate-600">
+                                    {user?.Department?.name || 'Portal Access'}
+                                </span>
+                            </div>
+                        </div>
                     </div>
 
-                    <div className="hidden md:flex flex-col text-right">
-                        <span className="text-sm font-bold text-gray-800">{user?.shopName || user?.ownerName}</span>
-                        <span className="text-[10px] font-black text-amber-500 uppercase tracking-widest">{user?.customerCode || 'Customer'}</span>
+                    <div className="flex items-center gap-3 md:gap-4">
+                        <button
+                            onClick={handleLogout}
+                            className="inline-flex items-center gap-2 rounded-full border border-red-100 bg-red-50 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-red-500 transition-all duration-300 hover:border-red-200 hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-red-200 md:px-5"
+                        >
+                            <Icon icon="mdi:logout" className="text-lg" />
+                            <span className="hidden md:inline">Logout</span>
+                        </button>
                     </div>
-
-                    <button
-                        onClick={handleLogout}
-                        className="flex items-center gap-2 px-5 py-2.5 rounded-full text-red-500 hover:bg-red-50 font-black text-xs uppercase tracking-widest transition-all duration-300 border border-transparent hover:border-red-200 shadow-sm hover:shadow-md"
-                    >
-                        <Icon icon="mdi:logout" className="text-lg" />
-                        <span className="hidden md:inline">Logout</span>
-                    </button>
                 </div>
             </header>
 
             {/* Main Content Area */}
-            <main className="flex-1 p-4 md:p-8 overflow-y-auto custom-scrollbar">
-                <div className="max-w-[1400px] mx-auto w-full">
-                    <Outlet />
+            <main className="custom-scrollbar flex-1 overflow-y-auto px-4 pb-8 pt-4 md:px-6 md:pb-10 md:pt-5">
+                <div className="mx-auto flex w-full max-w-[1400px] flex-col gap-4">
+                    <div className="rounded-[1.4rem] border border-white/70 bg-white/80 px-4 py-3 shadow-[0_14px_34px_rgba(15,23,42,0.06)] backdrop-blur-md">
+                        <GoBackButton />
+                    </div>
+                    <div className="rounded-[1.8rem] border border-amber-100/70 bg-white/92 p-4 shadow-[0_18px_48px_rgba(15,23,42,0.07)] md:p-6">
+                        <Outlet />
+                    </div>
                 </div>
             </main>
 
