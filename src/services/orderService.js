@@ -30,7 +30,7 @@ export const updateOrderStatus = async (id, status) => {
 
 export const getOrderProductConfigs = async () => {
     try {
-        const fields = ['brand', 'category', 'treatment', 'index', 'productType', 'lab', 'coating'];
+        const fields = ['brand', 'category', 'treatment', 'index', 'productType', 'coating'];
         const responses = await Promise.all(
             fields.map(field => api.get(`/api/order/product-fields/${field}`).catch(() => ({ data: { data: [] } })))
         );

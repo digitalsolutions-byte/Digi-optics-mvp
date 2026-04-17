@@ -12,10 +12,10 @@ import { resetRegistration } from '../../store/slices/customerRegistrationSlice'
 import logo from '../../assets/logo.svg';
 
 const navItems = [
-    { label: 'Dashboard', icon: 'mdi:view-dashboard-outline', path: PATHS.ROOT },
+    { label: 'Dashboard', icon: 'lucide:layout-dashboard', path: PATHS.ROOT },
     {
         label: 'Registration',
-        icon: 'mdi:person-add-outline',
+        icon: 'lucide:square-pen',
         subItems: [
             { label: 'Register Customer', path: PATHS.CUSTOMER.REGISTER },
             { label: 'Register Staff', path: PATHS.STAFF.REGISTER }
@@ -23,14 +23,14 @@ const navItems = [
     },
     {
         label: 'Staff',
-        icon: 'mdi:account-group-outline',
+        icon: 'lucide:users',
         subItems: [
             { label: 'Staff List', path: PATHS.STAFF.LIST }
         ]
     },
     {
         label: 'Customer',
-        icon: 'mdi:account-details-outline',
+        icon: 'lucide:user-round',
         subItems: [
             { label: 'Customer List', path: PATHS.CUSTOMER.LIST },
             { label: 'Ship To', path: PATHS.CUSTOMER.SHIP_TO },
@@ -40,8 +40,7 @@ const navItems = [
     },
     {
         label: 'Customer Care',
-        icon: 'mdi:face-agent',
-        usePlayIcon: true,
+        icon: 'lucide:headphones',
         subItems: [
             { label: 'New Order', path: PATHS.CUSTOMER_CARE.NEW_ORDER, isBold: true },
             { label: 'All Orders', path: PATHS.CUSTOMER_CARE.ALL_ORDERS },
@@ -53,18 +52,17 @@ const navItems = [
             { label: 'Update Customers', path: PATHS.CUSTOMER_CARE.UPDATE_CUSTOMERS },
         ]
     },
-    { label: 'Drafts', icon: 'mdi:file-edit-outline', path: PATHS.DRAFTS },
-    // { label: 'F&A', icon: 'mdi:finance', path: PATHS.OPERATIONS.FINANCE },
-    { label: 'Stores', icon: 'mdi:store', path: PATHS.STORES },
-    { label: 'Reports', icon: 'mdi:chart-bar', path: PATHS.OPERATIONS.REPORTS },
-    { label: 'Lab', icon: 'mdi:flask-outline', path: PATHS.OPERATIONS.LAB },
-    { label: 'Tint', icon: 'mdi:water-outline', path: PATHS.OPERATIONS.TINT },
-    { label: 'Hard Coat', icon: 'mdi:shield-outline', path: PATHS.OPERATIONS.HARD_COAT },
-    { label: 'ARC', icon: 'mdi:layers-outline', path: PATHS.OPERATIONS.ARC },
-    { label: 'QC', icon: 'mdi:clipboard-check-outline', path: PATHS.OPERATIONS.QC },
-    { label: 'Fitting', icon: 'mdi:ruler-square', path: PATHS.OPERATIONS.FITTING },
-    { label: 'Dispatch', icon: 'mdi:truck-delivery-outline', path: PATHS.OPERATIONS.DISPATCH },
-    { label: 'DMS', icon: 'mdi:file-document-outline', path: PATHS.OPERATIONS.DMS },
+    { label: 'Drafts', icon: 'lucide:file-text', path: PATHS.DRAFTS },
+    { label: 'Stores', icon: 'lucide:store', path: PATHS.STORES },
+    { label: 'Reports', icon: 'lucide:chart-column', path: PATHS.OPERATIONS.REPORTS },
+    { label: 'Process 1', icon: 'lucide:droplets', path: PATHS.OPERATIONS.TINT },
+    { label: 'Process 2', icon: 'lucide:shield', path: PATHS.OPERATIONS.HARD_COAT },
+    { label: 'Process 3', icon: 'lucide:layers-3', path: PATHS.OPERATIONS.ARC },
+    { label: 'QC', icon: 'lucide:badge-check', path: PATHS.OPERATIONS.QC },
+    { label: 'Fitting', icon: 'lucide:ruler', path: PATHS.OPERATIONS.FITTING },
+    { label: 'Dispatch', icon: 'lucide:truck', path: PATHS.OPERATIONS.DISPATCH },
+    { label: 'DMS', icon: 'lucide:files', path: PATHS.OPERATIONS.DMS },
+    { label: 'Inventory', icon: 'lucide:package-search', path: PATHS.INVENTORY },
 ];
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
@@ -151,7 +149,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                                             <span>{item.label}</span>
                                         </div>
                                         <Icon
-                                            icon="mdi:menu-down"
+                                            icon="lucide:chevron-down"
                                             className={`w-6 h-6 transition-transform duration-200 ${openSubmenus[item.label] ? 'rotate-180' : ''}`}
                                         />
                                     </button>
@@ -201,11 +199,11 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                 {/* Bottom Actions */}
                 <div className="flex items-start justify-between w-full mt-auto px-4 space-y-2">
                     <button onClick={handleLogout} className="flex items-center gap-3 text-erp-accent hover:text-erp-accent/80 w-full">
-                        <Icon icon="mdi:logout" className="w-5 text-black h-5" />
+                        <Icon icon="lucide:log-out" className="w-5 text-black h-5" />
                         LogOut
                     </button>
                     <button className="flex items-center gap-3 text-erp-accent hover:text-erp-accent/80 w-full">
-                        <Icon icon="mdi:help-circle-outline" className="w-5 text-black h-5" />
+                        <Icon icon="lucide:circle-help" className="w-5 text-black h-5" />
                         Help
                     </button>
                 </div>
@@ -219,7 +217,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                 `}
                 aria-label="Toggle Sidebar"
             >
-                <Icon icon={isOpen ? 'mdi:chevron-left' : 'mdi:chevron-right'} className="w-6 h-6" />
+                <Icon icon={isOpen ? 'lucide:panel-left-close' : 'lucide:panel-left-open'} className="w-5 h-5" />
             </button>
 
             {/* Backdrop */}

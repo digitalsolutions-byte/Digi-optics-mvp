@@ -13,7 +13,7 @@ const CustomToggle = ({
     return (
         <div className={`space-x-2 flex items-center  ${containerClassName}`}>
             {label && (
-                <label className="block text-xs whitespace-nowrap font-black uppercase tracking-widest text-[#fe9a00]  px-1">
+                <label className="block text-xs whitespace-nowrap font-black uppercase tracking-widest text-erp-accent  px-1">
                     {label}
                 </label>
             )}
@@ -26,7 +26,7 @@ const CustomToggle = ({
                             type="button"
                             onClick={() => onChange(option.value)}
                             className={`flex-1 py-2.5 px-4 rounded-xl whitespace-nowrap text-xs font-black uppercase tracking-wider transition-all duration-300 ${isActive
-                                ? 'bg-[#fe9a00] text-white shadow-lg shadow-orange-500/20 scale-[1.02]'
+                                ? 'bg-erp-accent text-white shadow-lg shadow-orange-500/20 scale-[1.02]'
                                 : 'text-gray-400 hover:text-gray-600 hover:bg-gray-200/50'
                                 }`}
                         >

@@ -23,6 +23,7 @@ import CustomerLayout from '../components/layout/CustomerLayout';
 import CustomerDashboard from '../pages/CustomerDashboard';
 
 import { PATHS } from './paths';
+import Inventory from '../pages/Inventory';
 
 export { PATHS };
 
@@ -76,8 +77,8 @@ const CUSTOMER_CARE_MODULE = [
 ];
 
 const OPERATIONS_MODULE = [
-    { path: 'lab', element: PlaceholderPage, props: { title: 'Lab' } },
     { path: 'surfacing', element: PlaceholderPage, props: { title: 'Surfacing' } },
+    { path: 'inventory', element: Inventory, props: { title: 'Inventory' } },
     { path: 'tint', element: PlaceholderPage, props: { title: 'Tint' } },
     { path: 'hard-coat', element: PlaceholderPage, props: { title: 'Hard Coat' } },
     { path: 'arc', element: PlaceholderPage, props: { title: 'ARC' } },

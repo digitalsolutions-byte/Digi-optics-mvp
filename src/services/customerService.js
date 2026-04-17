@@ -6,7 +6,6 @@ export const getCustomerConfigs = async () => {
             '/api/product/business-types',
             '/api/product/gst-types',
             '/api/product/plants',
-            '/api/product/labs',
             '/api/product/fitting-centers',
             '/api/product/credit-days',
             '/api/product/courier-names',
@@ -16,8 +15,7 @@ export const getCustomerConfigs = async () => {
             '/api/product/billing-currencies',
             '/api/employee/sales-persons',
             '/api/product/brands',
-            '/api/product/categories',
-            '/api/product/specific-labs'
+            '/api/product/categories'
         ];
 
         const responses = await Promise.all(endpoints.map(url => api.get(url).catch(err => ({ error: err }))));
@@ -26,7 +24,6 @@ export const getCustomerConfigs = async () => {
             businessTypes: responses[0]?.data?.data || [],
             gstTypes: responses[1]?.data?.data || [],
             plants: responses[2]?.data?.data || [],
-            labs: responses[3]?.data?.data || [],
             fittingCenters: responses[4]?.data?.data || [],
             creditDays: responses[5]?.data?.data || [],
             courierNames: responses[6]?.data?.data || [],
@@ -36,8 +33,7 @@ export const getCustomerConfigs = async () => {
             billingCurrencies: responses[10]?.data?.data || [],
             salesPersons: responses[11]?.data?.data || [],
             brands: responses[12]?.data?.data || [],
-            categories: responses[13]?.data?.data || [],
-            specificLabs: responses[14]?.data?.data || []
+            categories: responses[13]?.data?.data || []
         };
     } catch (error) {
         console.error('Error fetching customer configs:', error);

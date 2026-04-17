@@ -371,7 +371,7 @@ const AllOrdersList = () => {
                                             </td>
                                             <td className="px-6 py-2 text-center border-r border-gray-50">
                                                 <span className="text-sm font-black text-gray-800 tracking-tight ">
-                                                    ₹{order?.totalAmount || '0.00'}
+                                                    ₹{order?.totalOrderPrice || '0.00'}
                                                 </span>
                                             </td>
                                             <td className="px-4 py-2 text-center border-r border-gray-50">

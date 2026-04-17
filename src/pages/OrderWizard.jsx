@@ -56,7 +56,6 @@ const OrderWizard = () => {
         // Customer Details
         customerId: '',
         shipToId: '',
-        labId: '',
         orderReference: '',
         consumerCardName: '',
         opticianName: '',
@@ -108,7 +107,6 @@ const OrderWizard = () => {
     const validationSchema = Yup.object().shape({
         // Step 1: Customer Details
         customerId: Yup.string().required('Customer selection is required'),
-        labId: Yup.string().required('Lab selection is required'),
 
         // Step 2: Product Details
         brandId: Yup.string().required('Brand is required'),
@@ -184,7 +182,6 @@ const OrderWizard = () => {
                             ...initialValues,
                             customerId: order.customer?.customerId?._id || order.customer?.customerId || '',
                             shipToId: order.customer?.customerShipToId || '',
-                            labId: order.lab?.id || '',
                             orderReference: order.orderReference || '',
                             consumerCardName: order.consumerCardName || '',
                             opticianName: order.opticianName || '',
@@ -348,7 +345,6 @@ const OrderWizard = () => {
                 customerId: values.customerId,
                 customerShipToId: values.shipToId
             },
-            lab: getFieldData('lab', values.labId),
             orderReference: values.orderReference,
             consumerCardName: values.consumerCardName,
             opticianName: values.opticianName,
@@ -654,7 +650,7 @@ const OrderWizard = () => {
         const { values, errors } = formik;
         switch (stepIdx) {
             case 0: // Customer Details
-                return !!values.customerId && !!values.labId && !errors.customerId && !errors.labId;
+                return !!values.customerId && !errors.customerId;
             case 1: // Product Details
                 return !!values.brandId && !!values.categoryId && !!values.productName && !!values.indexId &&
                     !errors.brandId && !errors.categoryId && !errors.productName && !errors.indexId;
@@ -673,7 +669,7 @@ const OrderWizard = () => {
     const handleNext = async () => {
         // Define fields for each step to validate partially
         const stepFields = [
-            ['customerId', 'labId'], // Step 1
+            ['customerId'], // Step 1
             ['brandId', 'categoryId', 'productName', 'indexId'], // Step 2
             ['pantoscopicAngle', 'bowAngle', 'bvd'] // Step 3
         ];
@@ -750,12 +746,6 @@ const OrderWizard = () => {
                 </p>
             </div>
 
-            {wrapInput(Select, {
-                label: "Select Lab",
-                name: "labId",
-                options: (Array.isArray(configs?.lab) ? configs.lab : []).map(l => ({ value: l._id, label: l.name })),
-                placeholder: "Select Lab"
-            })}
             {wrapInput(Input, {
                 label: "Order Reference",
                 name: "orderReference",

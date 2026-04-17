@@ -61,7 +61,6 @@ const Registration = () => {
 
     const [configs, setConfigs] = useState({
         EmployeeType: [],
-        labs: [],
         departments: []
     });
 
@@ -93,8 +92,7 @@ const Registration = () => {
                 if (configRes.success) {
                     setConfigs(prev => ({
                         ...prev,
-                        EmployeeType: configRes.data.find(c => c.configType === 'EmployeeType')?.values || [],
-                        labs: configRes.data.find(c => c.configType === 'Lab')?.values || []
+                        EmployeeType: configRes.data.find(c => c.configType === 'EmployeeType')?.values || []
                     }));
                 }
 
@@ -135,7 +133,6 @@ const Registration = () => {
                 role: draft.subRoles?.[0]?.refId || '',
                 pincode: draft.pincode || '',
                 expiry: draft.expiry || '',
-                lab: draft.lab || '',
                 aadharCard: draft.aadharCard || '',
                 panCard: draft.panCard || '',
                 state: draft.state || '',
@@ -226,7 +223,6 @@ const Registration = () => {
             role: '',
             pincode: '',
             expiry: '',
-            lab: '',
             aadharCard: '',
             panCard: '',
             state: '',

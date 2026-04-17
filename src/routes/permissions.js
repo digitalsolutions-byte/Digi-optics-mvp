@@ -53,10 +53,9 @@ export const PERMISSIONS_CONFIG = {
     },
 
     // OPERATIONS MODULE
-    [PATHS.OPERATIONS.LAB]: { allowedDepartments: ['LAB', 'PRODUCTION'], allowedRoles: ['SUPERADMIN'] },
-    [PATHS.OPERATIONS.TINT]: { allowedDepartments: ['LAB', 'TINTING', 'PRODUCTION'], allowedRoles: ['SUPERADMIN'] },
-    [PATHS.OPERATIONS.HARD_COAT]: { allowedDepartments: ['LAB', 'COATING', 'PRODUCTION'], allowedRoles: ['SUPERADMIN'] },
-    [PATHS.OPERATIONS.ARC]: { allowedDepartments: ['LAB', 'ARC', 'PRODUCTION'], allowedRoles: ['SUPERADMIN'] },
+    [PATHS.OPERATIONS.TINT]: { allowedDepartments: ['TINTING', 'PRODUCTION'], allowedRoles: ['SUPERADMIN'] },
+    [PATHS.OPERATIONS.HARD_COAT]: { allowedDepartments: ['COATING', 'PRODUCTION'], allowedRoles: ['SUPERADMIN'] },
+    [PATHS.OPERATIONS.ARC]: { allowedDepartments: ['ARC', 'PRODUCTION'], allowedRoles: ['SUPERADMIN'] },
     [PATHS.OPERATIONS.QC]: { allowedDepartments: ['QC', 'QUALITY', 'PRODUCTION'], allowedRoles: ['SUPERADMIN'] },
     [PATHS.OPERATIONS.FITTING]: { allowedDepartments: ['FITTING', 'PRODUCTION'], allowedRoles: ['SUPERADMIN'] },
     [PATHS.OPERATIONS.DISPATCH]: { allowedDepartments: ['DISPATCH', 'LOGISTICS'], allowedRoles: ['SUPERADMIN'] },

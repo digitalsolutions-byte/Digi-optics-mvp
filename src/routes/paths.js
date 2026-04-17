@@ -41,6 +41,7 @@ export const PATHS = {
     },
 
     STORES: '/stores',
+    INVENTORY: '/inventory',
     NEW_ORDER: '/new-order',
     DRAFTS: '/drafts',
     APPROVALS: '/approvals',
@@ -48,7 +49,6 @@ export const PATHS = {
 
     // OPERATIONS MODULE
     OPERATIONS: {
-        LAB: '/lab',
         SURFACING: '/surfacing',
         TINT: '/tint',
         HARD_COAT: '/hard-coat',
