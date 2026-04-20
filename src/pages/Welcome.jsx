@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Icon } from '@iconify/react';
-import logo from '../assets/logo.svg';
+import logo from '../assets/logo.png';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { PATHS } from '../routes/paths';
 

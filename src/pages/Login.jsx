@@ -3,7 +3,7 @@ import Card from '../components/ui/Card';
 import Input from '../components/ui/Input';
 import Button from '../components/ui/Button';
 import { Icon } from '@iconify/react';
-import logo from '../assets/logo.svg';
+import logo from '../assets/logo.png';
 import loginImage from '../assets/login-image.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -65,7 +65,7 @@ const Login = () => {
                         alt="Visual Lens"
                         className="absolute inset-0 w-full h-full rounded-3xl object-cover opacity-80"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent"></div>
+                    {/* <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent"></div> */}
                 </div>
 
                 {/* Right Side - Form */}

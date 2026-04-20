@@ -44,12 +44,17 @@ body {
 /* Custom ERP Theme Variables for Tailwind v4 */
 @theme {
   /* Change these color hex codes to instantly update the entire application's theme */
-  --color-erp-primary: #000000;      /* Black */
-  --color-erp-secondary: #D9D9D9;    /* Light Grey */
-  --color-erp-accent: #FF6300;       /* Orange Accent */
-  --color-erp-dark: #1A1A1A;         /* Dark Black */
-  --color-erp-danger: #E74C3C;       /* Error/Danger Red */
-  
+  --color-erp-primary: #000000;
+  /* Black */
+  --color-erp-secondary: #D9D9D9;
+  /* Light Grey */
+  --color-erp-accent: #FF6300;
+  /* Orange Accent */
+  --color-erp-dark: #1A1A1A;
+  /* Dark Black */
+  --color-erp-danger: #E74C3C;
+  /* Error/Danger Red */
+
   --font-sans: 'Montserrat', system-ui, sans-serif;
 }
 

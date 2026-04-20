@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Input from '../components/ui/Input';
 import Button from '../components/ui/Button';
 import { Icon } from '@iconify/react';
-import logo from '../assets/logo.svg';
+import logo from '../assets/logo.png';
 import loginImage from '../assets/login-image.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';

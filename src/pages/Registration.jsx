@@ -712,16 +712,7 @@ const Registration = () => {
                                 }
                             }}
                         />
-                        {/* <Select
-                            label="Lab *"
-                            name="lab"
-                            value={formik.values.lab}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            placeholder="Select Lab"
-                            error={formik.touched.lab && formik.errors.lab ? { message: formik.errors.lab } : null}
-                            options={(configs.labs || []).map(lab => ({ value: lab, label: lab }))}
-                        /> */}
+
 
                         {showDocumentFields && (
                             <div className="flex flex-col gap-4 col-span-1 md:col-span-2 mt-4">

@@ -8,7 +8,6 @@ export const Overview = ({ formik, configs = {}, isSalesUser }) => {
     // Optional chaining to prevent TypeError if configs array is undefined
     const getZone = () => configs.zones?.find(z => z._id === values.zoneRefId)?.zone;
     const getSalesPerson = () => configs.salesPersons?.find(s => s._id === values.salesPersonRefId)?.employeeName;
-    const getLab = () => configs.specificLabs?.find(l => l._id === values.specificLabRefId)?.name;
     const getPlant = () => configs.plants?.find(p => p._id === values.plantRefId)?.name;
     const getFittingCenter = () => configs.fittingCenters?.find(f => f._id === values.fittingCenterRefId)?.name;
     const getCreditDays = () => configs.creditDays?.find(d => d._id === values.creditDaysRefId)?.days;

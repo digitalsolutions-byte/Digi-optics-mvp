@@ -3,7 +3,7 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut, selectCurrentUser, setCredentials } from '../../store/slices/authSlice';
 import { Icon } from '@iconify/react';
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/logo.png';
 import { acceptTermsConditions } from '../../services/customerService';
 import { toast } from 'react-toastify';
 import GoBackButton from '../navigation/GoBackButton';

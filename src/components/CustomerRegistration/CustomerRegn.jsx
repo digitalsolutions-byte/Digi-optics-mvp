@@ -71,11 +71,6 @@ export const CustomerRegn = ({ wrapInput, configs, formValues, formik, dispatch,
                     options: (configs.salesPersons || []).map(s => ({ value: s._id, label: s.employeeName }))
                 })}
                 {noVerifyWrap(Select, {
-                    label: 'Specific Lab*',
-                    name: 'specificLabRefId',
-                    options: (configs.specificLabs || []).map(l => ({ value: l._id, label: l.name }))
-                })}
-                {noVerifyWrap(Select, {
                     label: 'Fitting Centre*',
                     name: 'fittingCenterRefId',
                     options: (configs.fittingCenters || []).map(f => ({ value: f._id, label: f.name }))

@@ -9,7 +9,7 @@ import { logOut } from '../../store/slices/authSlice';
 import { selectCurrentUser } from '../../store/slices/authSlice';
 import { hasAccess } from '../../routes/permissions';
 import { resetRegistration } from '../../store/slices/customerRegistrationSlice';
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/logo.png';
 
 const navItems = [
     { label: 'Dashboard', icon: 'lucide:layout-dashboard', path: PATHS.ROOT },
@@ -126,7 +126,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         `}
             >
                 {/* Logo */}
-                <div className="py-2 md:py-6 flex justify-center ">
+                <div className="py-2 md:py-6 px-2  flex justify-center ">
                     <img src={logo} alt="DigiOptics" className="w-full h-[60px] md:h-[85px] object-contain" />
                 </div>
 

@@ -6,7 +6,7 @@ const Topbar = () => {
     const user = useSelector((state) => state.auth.user);
 
     return (
-        <div className="w-full rounded-[1.4rem] border border-white/60 bg-gradient-to-r from-erp-dark via-[#1f2937] to-erp-accent text-white shadow-[0_16px_40px_rgba(15,23,42,0.14)]">
+        <div className="w-full rounded-[1.4rem] border border-white/60 bg-erp-accent text-white shadow-[0_16px_40px_rgba(15,23,42,0.14)]">
             <div className="flex items-center justify-between gap-3 px-4 py-3 md:px-5">
                 <div className="min-w-0">
                     <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-white/65">Workspace</p>
