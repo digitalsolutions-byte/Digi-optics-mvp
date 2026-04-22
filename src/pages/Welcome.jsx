@@ -39,7 +39,7 @@ const Welcome = () => {
 
                 <div className=" relative z-10">
                     <div className="flex items-center gap-2 justify-center mb-6">
-                        <img src={logo} alt="Digi-Optics" className="h-48 object-contain" />
+                        <img src={logo} alt="Digi-Optics" className="h-18 object-contain" />
                     </div>
                 </div>
 

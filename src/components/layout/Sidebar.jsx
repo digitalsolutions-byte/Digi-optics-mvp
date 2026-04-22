@@ -127,7 +127,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             >
                 {/* Logo */}
                 <div className="py-2 md:py-6 px-2  flex justify-center ">
-                    <img src={logo} alt="DigiOptics" className="w-full h-[60px] md:h-[85px] object-contain" />
+                    <img src={logo} alt="DigiOptics" className=" px-5 object-contain" />
                 </div>
 
                 {/* Menu */}

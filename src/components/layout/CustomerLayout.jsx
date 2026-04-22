@@ -60,7 +60,7 @@ const CustomerLayout = () => {
                 <div className="mx-auto flex w-full max-w-[1400px] items-center justify-between gap-4 px-4 py-3 md:px-6 md:py-4">
                     <div className="flex min-w-0 items-center gap-3 md:gap-4">
                         <div className="rounded-xl bg-gradient-to-br from-white to-amber-50 p-2 shadow-[0_8px_18px_rgba(251,191,36,0.14)] ring-1 ring-amber-100">
-                            <img src={logo} alt="DigiOptics" className="h-8 object-contain md:h-9" />
+                            <img src={logo} alt="DigiOptics" className="h-4 object-contain md:h-5" />
                         </div>
                         <div className="min-w-0">
                             <div className="text-[10px] font-bold uppercase tracking-[0.24em] text-amber-500">Customer Portal</div>

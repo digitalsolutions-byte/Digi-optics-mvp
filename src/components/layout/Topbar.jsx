@@ -6,7 +6,7 @@ const Topbar = () => {
     const user = useSelector((state) => state.auth.user);
 
     return (
-        <div className="w-full rounded-[1.4rem] border border-white/60 bg-erp-accent text-white shadow-[0_16px_40px_rgba(15,23,42,0.14)]">
+        <div className="w-full rounded-[1.4rem] border border-white/60 bg-gradient-to-r from-erp-accent to-[#f7e7ce] text-white shadow-[0_16px_40px_rgba(15,23,42,0.14)]">
             <div className="flex items-center justify-between gap-3 px-4 py-3 md:px-5">
                 <div className="min-w-0">
                     <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-white/65">Workspace</p>
@@ -20,7 +20,7 @@ const Topbar = () => {
 
                 <button
                     type="button"
-                    className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-white/10 text-white/90 transition hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-amber-300"
+                    className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-dark/10 text-erp-accent/90 transition hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-amber-300"
                     aria-label="Notifications"
                 >
                     <Icon icon="mdi:bell-outline" className="h-5 w-5" />

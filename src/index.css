@@ -12,6 +12,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 html {
@@ -32,7 +33,9 @@ body {
 
 .app-root {
   min-height: 100vh;
-  background: transparent;
+  background-color: #fafaf8;
+  background-image: radial-gradient(circle, #e8e4dc 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
 @media (max-width: 1000px) {
@@ -56,6 +59,18 @@ body {
   /* Error/Danger Red */
 
   --font-sans: 'Montserrat', system-ui, sans-serif;
+
+  @keyframes bounce-slow {
+    0%, 100% {
+      transform: translateY(-5%);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+      transform: translateY(0);
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
+  --animate-bounce-slow: bounce-slow 3s infinite;
 }
 
 /* Custom Scrollbar */

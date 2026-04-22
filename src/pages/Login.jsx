@@ -5,6 +5,7 @@ import Button from '../components/ui/Button';
 import { Icon } from '@iconify/react';
 import logo from '../assets/logo.png';
 import loginImage from '../assets/login-image.png';
+import loginMascot from '../assets/login-mascot.gif';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
@@ -53,17 +54,35 @@ const Login = () => {
         },
     });
 
+    const getGreeting = () => {
+        const hour = new Date().getHours();
+        if (hour < 12) return 'Good Morning!';
+        if (hour < 17) return 'Good Afternoon!';
+        return 'Good Evening!';
+    };
+
     return (
         <div className="min-h-screen flex items-center justify-center p-4">
             {/* Main Container Card */}
-            <div className=" rounded-3xl shadow-2xl overflow-hidden max-w-5xl w-full flex flex-col md:flex-row min-h-[500px]">
+            <div className=" rounded-3xl shadow-2xl overflow-hidden max-w-4xl w-full flex flex-col md:flex-row min-h-[500px]">
 
                 {/* Left Side - Image */}
                 <div className="w-full md:w-1/2 relative ">
+                    {/* Speech Bubble */}
+                    <div className="absolute top-[5%] left-[5%] z-20 hidden md:block animate-bounce-slow">
+                        <div className="relative bg-white border-3 border-black rounded-[2rem] p-6 shadow-[10px_10px_0px_0px_rgba(0,0,0,0.1)] min-w-[280px]">
+                            <h2 className="text-xl font-black text-center text-slate-800">{getGreeting()}</h2>
+                            <p className="text-sm font-bold text-center text-slate-600 mt-2">Hope you have a wonderful day!</p>
+                            {/* Speech Bubble Arrow */}
+                            <div className="absolute -bottom-4 left-12 w-8 h-8 bg-white border-b-3 border-r-3 border-black rotate-[45deg]"></div>
+                        </div>
+                    </div>
+
+                    <img src={loginMascot} alt="" className="absolute bottom-[-5px] h-70 w-70 right-0 z-10" />
                     <img
                         src={loginImage}
                         alt="Visual Lens"
-                        className="absolute inset-0 w-full h-full rounded-3xl object-cover opacity-80"
+                        className="absolute inset-0   w-full h-full rounded-3xl object-cover opacity-80"
                     />
                     {/* <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent"></div> */}
                 </div>
@@ -73,7 +92,7 @@ const Login = () => {
                     <div className="flex justify-center mb-10">
                         {/* Logo */}
                         <div className="flex items-center gap-2">
-                            <img src={logo} alt="Digi-Optics" className="h-48 object-contain" />
+                            <img src={logo} alt="Digi-Optics" className="h-10 object-contain" />
                         </div>
                     </div>
 
