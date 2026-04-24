@@ -61,7 +61,7 @@ const navItems = [
     { label: 'QC', icon: 'lucide:badge-check', path: PATHS.OPERATIONS.QC },
     { label: 'Fitting', icon: 'lucide:ruler', path: PATHS.OPERATIONS.FITTING },
     { label: 'Dispatch', icon: 'lucide:truck', path: PATHS.OPERATIONS.DISPATCH },
-    { label: 'DMS', icon: 'lucide:files', path: PATHS.OPERATIONS.DMS },
+    // { label: 'DMS', icon: 'lucide:files', path: PATHS.OPERATIONS.DMS },
     { label: 'Inventory', icon: 'lucide:package-search', path: PATHS.INVENTORY },
 ];
 

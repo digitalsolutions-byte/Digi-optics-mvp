@@ -79,9 +79,9 @@ const CUSTOMER_CARE_MODULE = [
 const OPERATIONS_MODULE = [
     { path: 'surfacing', element: PlaceholderPage, props: { title: 'Surfacing' } },
     { path: 'inventory', element: Inventory, props: { title: 'Inventory' } },
-    { path: 'tint', element: PlaceholderPage, props: { title: 'Tint' } },
-    { path: 'hard-coat', element: PlaceholderPage, props: { title: 'Hard Coat' } },
-    { path: 'arc', element: PlaceholderPage, props: { title: 'ARC' } },
+    { path: 'process-1', element: PlaceholderPage, props: { title: 'Process 1' } },
+    { path: 'process-2', element: PlaceholderPage, props: { title: 'Process 2' } },
+    { path: 'process-3', element: PlaceholderPage, props: { title: 'Process 3' } },
     { path: 'qc', element: PlaceholderPage, props: { title: 'QC' } },
     { path: 'fitting', element: PlaceholderPage, props: { title: 'Fitting' } },
     { path: 'dispatch', element: PlaceholderPage, props: { title: 'Dispatch' } },

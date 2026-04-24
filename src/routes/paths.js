@@ -50,9 +50,9 @@ export const PATHS = {
     // OPERATIONS MODULE
     OPERATIONS: {
         SURFACING: '/surfacing',
-        TINT: '/tint',
-        HARD_COAT: '/hard-coat',
-        ARC: '/arc',
+        TINT: '/process-1',
+        HARD_COAT: '/process-2',
+        ARC: '/process-3',
         QC: '/qc',
         FITTING: '/fitting',
         DISPATCH: '/dispatch',
